@@ -52,7 +52,7 @@ prepCorners <- function (data, solution, outcomeCol, ruleOut = "0=0;1=1") {
     pimNettle$OTHOUT[i] <- sum(pims$OUT[which(pims[,i] == 0)])
     pimNettle$PATHNOT[i] <- colSums(pims[i]) - pimNettle$PATHOUT[i]
     pimNettle$OTHNOT[i] <- length(which(pims[,i] == 0)) - sum(pims$OUT[which(pims[,i] == 0)])
-    pimNettle$UNIQOUT[i] <- sum(pims$OUT[which(pims$ALLPATHS == 1 && which(pims[,i] == 1)),i])
+    pimNettle$UNIQOUT[i] <- sum(pims[which(pims$ALLPATHS == 1 & pims[,i] == 1),]$OUT)
   }
   # construct the list
   nettlePatch <- list("pimChart" = pims, "pimCorners" = pimNettle)
