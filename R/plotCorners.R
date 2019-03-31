@@ -1,7 +1,7 @@
 #' plotCorners
-#' 
+#'
 #' plotCorners is a function that draws the full four leaf fourCorners plot
-#' 
+#'
 #' @param pathOutcome is the number of cases that have the path leading to the outcome
 #' @param otherOutcome is the number of cases without the path but with the outcome -- used to calculate coverage
 #' @param pathNotOutcome is the number of cases that have the path, but not the outcome -- used to calculate consistency
@@ -9,9 +9,13 @@
 #' @param uniquePathOutcome is the number of cases that only have that path to the outcome (and not some other)
 #' @param path is the name of the path
 #' @param outcome is the name of the outcome
+#' @param pathColor is the color of the on-path cases with the outcome
+#' @param othersColor is the color of the cases with the outcome not on the path
+#' @param pathNotColor is the color of the on-path cases without the outcome
+#' @param othersNotColor is the color of the irrelevant cases (without the outcome and not on the path)
 #' @keywords internal
-#' 
-plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOutcome, uniquePathOutcome, path = "PATH", outcome = "OUTCOME", textPosition = .25) {
+#'
+plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOutcome, uniquePathOutcome, path = "PATH", outcome = "OUTCOME", textPosition = .25, pathColor = "#5e3c99", othersColor = "#b2abd2", pathNotColor = "#e66101", othersNotColor = "#fdb863") {
   offset = 0.028
   rElement = 0.02
   # draw deadnettle plot
@@ -21,20 +25,20 @@ plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOut
   # use the Cairo library to output to a png device
   # must draw lines around objects for anti-aliasing
   #library(Cairo)
-  #Cairo(file="Cairo_PNG_72_dpi_white.png", 
+  #Cairo(file="Cairo_PNG_72_dpi_white.png",
   #      bg="white",
   #      type="png",
-  #      units="in", 
-  #      width=5, 
-  #      height=5, 
-  #      pointsize=12, 
+  #      units="in",
+  #      width=5,
+  #      height=5,
+  #      pointsize=12,
   #      dpi=72)
   #
   #
   # use svg() to output vector graphics
-  #svg(filename="Std_SVG.svg", 
-  #    width=5, 
-  #    height=5, 
+  #svg(filename="Std_SVG.svg",
+  #    width=5,
+  #    height=5,
   #    pointsize=12)
   #tryCatch(dev.off(), error = function() {as.null(NULL)})
   # create a new page for each plot
@@ -56,10 +60,10 @@ plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOut
   #
   # draw the four leaves
   # the drawing of dots needs to be opposite of the sector location
-  drawCorner(dp.UL, pathOutcome, 0, 1, "#5e3c99")
-  drawCorner(dp.LL, othersOutcome, 1, 1, "#b2abd2")
-  drawCorner(dp.UR, pathNotOutcome, 0, 0, "#e66101")
-  drawCorner(dp.LR, othersNotOutcome, 1, 0, "#fdb863")
+  drawCorner(dp.UL, pathOutcome, 0, 1, pathColor)
+  drawCorner(dp.LL, othersOutcome, 1, 1, othersColor)
+  drawCorner(dp.UR, pathNotOutcome, 0, 0, pathNotColor)
+  drawCorner(dp.LR, othersNotOutcome, 1, 0, othersNotColor)
   # draw the unique path-outcome leaf
   drawCorner(dp.UL, uniquePathOutcome, 0, 1, "#5e3c99", unique = TRUE)
   # draw the text on the graph for the path
