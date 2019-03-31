@@ -8,7 +8,7 @@
 #' @param pathNotColor is the color of the on-path cases without the outcome
 #' @param othersNotColor is the color of the irrelevant cases (without the outcome and not on the path)
 #' @export
-allCorners <- function(cornerSet, outcomeLabel = "OUTCOME") {
+allCorners <- function(cornerSet, outcomeLabel = "OUTCOME", pathColor = "#5e3c99", othersColor = "#b2abd2", pathNotColor = "#e66101", othersNotColor = "#fdb863") {
   PATHNOT <- sum(cornerSet$pimChart$NOT[which(cornerSet$pimChart$PATH == 1)])
   OTHNOT <- sum(cornerSet$pimChart$NOT[which(cornerSet$pimChart$PATH == 0)])
   PATHOUT <- sum(cornerSet$pimChart$OUT[which(cornerSet$pimChart$PATH == 1)])
