@@ -65,7 +65,7 @@ plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOut
   drawCorner(dp.UR, pathNotOutcome, 0, 0, pathNotColor)
   drawCorner(dp.LR, othersNotOutcome, 1, 0, othersNotColor)
   # draw the unique path-outcome leaf
-  drawCorner(dp.UL, uniquePathOutcome, 0, 1, "#5e3c99", unique = TRUE)
+  drawCorner(dp.UL, uniquePathOutcome, 0, 1, pathColor, unique = TRUE)
   # draw the text on the graph for the path
   # grid.text(path, x = .5, y = .58, rot = 90, just = c("left", "center"), gp = gpar(fontsize = 10, col = "#888888"))
   # grid.text("ALL OTHER PATHS", x = .5, y = .42, rot = 90, just = c("right", "center"), gp = gpar(fontsize = 10, col = "#888888"))
