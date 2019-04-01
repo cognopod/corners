@@ -4,12 +4,24 @@
 \alias{fourCorners}
 \title{fourCorners}
 \usage{
-fourCorners(cornerSet, outcomeLabel = "OUTCOME")
+fourCorners(cornerSet, outcomeLabel = "OUTCOME", pathColor = "#5e3c99",
+  othersColor = "#b2abd2", pathNotColor = "#e66101",
+  othersNotColor = "#fdb863", shape = "square")
 }
 \arguments{
 \item{cornerSet}{is an dataframe produced by prepNettle()}
 
 \item{outcomeLabel}{is a passthrough variable for the name of the outcome}
+
+\item{pathColor}{is the color of the on-path cases with the outcome}
+
+\item{othersColor}{is the color of the cases with the outcome not on the path}
+
+\item{pathNotColor}{is the color of the on-path cases without the outcome}
+
+\item{othersNotColor}{is the color of the irrelevant cases (without the outcome and not on the path)}
+
+\item{shape}{is the shape to be used in plotting}
 }
 \description{
 fourCorners allows you to plot all of the plots in a prepCorners() list

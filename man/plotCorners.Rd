@@ -6,7 +6,9 @@
 \usage{
 plotCorners(pathOutcome, othersOutcome, pathNotOutcome, othersNotOutcome,
   uniquePathOutcome, path = "PATH", outcome = "OUTCOME",
-  textPosition = 0.25)
+  textPosition = 0.25, pathColor = "#5e3c99",
+  othersColor = "#b2abd2", pathNotColor = "#e66101",
+  othersNotColor = "#fdb863", shape = "square")
 }
 \arguments{
 \item{pathOutcome}{is the number of cases that have the path leading to the outcome}
@@ -21,8 +23,19 @@ plotCorners(pathOutcome, othersOutcome, pathNotOutcome, othersNotOutcome,
 
 \item{outcome}{is the name of the outcome}
 
+\item{pathColor}{is the color of the on-path cases with the outcome}
+
+\item{othersColor}{is the color of the cases with the outcome not on the path}
+
+\item{pathNotColor}{is the color of the on-path cases without the outcome}
+
+\item{othersNotColor}{is the color of the irrelevant cases (without the outcome and not on the path)}
+
+\item{shape}{is the shape to be used in plotting}
+
 \item{otherOutcome}{is the number of cases without the path but with the outcome -- used to calculate coverage}
 }
 \description{
 plotCorners is a function that draws the full four leaf fourCorners plot
 }
+\keyword{internal}

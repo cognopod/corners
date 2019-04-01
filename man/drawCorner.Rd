@@ -4,8 +4,9 @@
 \alias{drawCorner}
 \title{drawCorner}
 \usage{
-drawCorner(sector, nElements, drawTop, drawRight, leafColor, offset = 0.028,
-  rElement = 0.02, unique = FALSE)
+drawCorner(sector, nElements, drawTop, drawRight, leafColor,
+  offset = 0.028, rElement = 0.02, unique = FALSE,
+  shape = "square")
 }
 \arguments{
 \item{sector}{is a predefined viewport}
@@ -22,8 +23,11 @@ drawCorner(sector, nElements, drawTop, drawRight, leafColor, offset = 0.028,
 
 \item{unique}{draws with white fill so that a fifth call can draw unique elements}
 
+\item{shape}{draws shape (either "circle" or "square")}
+
 \item{offSet}{is the distance between elements}
 }
 \description{
 drawCorner is a function that is used by fourCorners to draw one of the leaves.
 }
+\keyword{internal}

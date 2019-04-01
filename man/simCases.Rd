@@ -4,9 +4,9 @@
 \alias{simCases}
 \title{simCases}
 \usage{
-simCases(varTypes = c("B", "B", "B", "M"), complexity = 10, ratio = 2,
-  numSolutions = 6, numCases = 50, noiseCases = 0, distribute = FALSE,
-  distProp = 0.5)
+simCases(varTypes = c("B", "B", "B", "M"), complexity = 10,
+  ratio = 2, numSolutions = 6, numCases = 50, noiseCases = 0,
+  distribute = FALSE, distProp = 0.5)
 }
 \arguments{
 \item{varTypes}{A vector (created using the combine or C() function) of variable types. B is a binary variable (0 or 1). M is a multi-value variable (currently 0, 1, or 2).  C is a cluster variable that will create two continuous variables based on four underlying clusters. Right now only one C variable is allowed. Defaults to four variables--three binary + one multivalue.}

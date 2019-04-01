@@ -23,7 +23,7 @@ A list of componments
  \item{PATHOUT}{The number of cases on the path and with the outcome. When this is proportionally large, most of the cases can be explained by this configuration.}
  \item{OTHOUT}{The number of cases not on the path, but with the outcome. Cases not covered by this configuration.}
  \item{PATHNOT}{The number of cases on the path, but without the outcome. Counterfactuals.}
- \item{OTHNOT}{The number of cases not on the path, but without the outcome. Irrelevant.} 
+ \item{OTHNOT}{The number of cases not on the path, but without the outcome. Irrelevant.}
  \item{UNIQOUT}{The number of cases with the outcome that are uniquely covered by this path.}
 }
 }
