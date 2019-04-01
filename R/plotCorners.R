@@ -13,9 +13,10 @@
 #' @param othersColor is the color of the cases with the outcome not on the path
 #' @param pathNotColor is the color of the on-path cases without the outcome
 #' @param othersNotColor is the color of the irrelevant cases (without the outcome and not on the path)
+#' @param shape is the shape to be used in plotting
 #' @keywords internal
 #'
-plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOutcome, uniquePathOutcome, path = "PATH", outcome = "OUTCOME", textPosition = .25, pathColor = "#5e3c99", othersColor = "#b2abd2", pathNotColor = "#e66101", othersNotColor = "#fdb863") {
+plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOutcome, uniquePathOutcome, path = "PATH", outcome = "OUTCOME", textPosition = .25, pathColor = "#5e3c99", othersColor = "#b2abd2", pathNotColor = "#e66101", othersNotColor = "#fdb863", shape = "square") {
   offset = 0.028
   rElement = 0.02
   # draw deadnettle plot
@@ -60,10 +61,12 @@ plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOut
   #
   # draw the four leaves
   # the drawing of dots needs to be opposite of the sector location
-  drawCorner(dp.UL, pathOutcome, 0, 1, pathColor)
-  drawCorner(dp.LL, othersOutcome, 1, 1, othersColor)
-  drawCorner(dp.UR, pathNotOutcome, 0, 0, pathNotColor)
-  drawCorner(dp.LR, othersNotOutcome, 1, 0, othersNotColor)
+  reloffset = .20/sqrt(max(pathOutcome, othersOutcome, pathNotOutcome, othersNotOutcome))
+  relrElement = reloffset*5/7
+  drawCorner(dp.UL, pathOutcome, 0, 1, pathColor, offset = reloffset, rElement = relrElement, shape = shape)
+  drawCorner(dp.LL, othersOutcome, 1, 1, othersColor, offset = reloffset, rElement = relrElement, shape = shape)
+  drawCorner(dp.UR, pathNotOutcome, 0, 0, pathNotColor, offset = reloffset, rElement = relrElement, shape = shape)
+  drawCorner(dp.LR, othersNotOutcome, 1, 0, othersNotColor, offset = reloffset, rElement = relrElement, shape = shape)
   # draw the unique path-outcome leaf
   drawCorner(dp.UL, uniquePathOutcome, 0, 1, pathColor, unique = TRUE)
   # draw the text on the graph for the path
@@ -80,10 +83,10 @@ plotCorners <- function(pathOutcome, othersOutcome, pathNotOutcome, othersNotOut
   # calculate some consistency and coverage scores
   consistency <- format(round(pathOutcome/(pathOutcome+pathNotOutcome),3), nsmall = 3)
   coverage <- format(round(pathOutcome/(pathOutcome+othersOutcome),3), nsmall = 3)
-  grid::grid.text("consistency", x = 0.5, y = 0.5 + (as.integer(sqrt(max(pathOutcome, pathNotOutcome)))+5.5) * 2 * offset * .48, rot = 0, gp = grid::gpar(col="grey", fontsize=10))
-  grid::grid.text(consistency, x = 0.5, y = 0.5 + (as.integer(sqrt(max(pathOutcome, pathNotOutcome)))+4) * 2 * offset * .48, rot = 0, gp = grid::gpar(col="grey", fontsize=10))
-  grid::grid.text("coverage", x = 0.5 - (as.integer(sqrt(max(pathOutcome, othersOutcome)))+5) * 2 * offset * .48, y = 0.5, rot = 90,  gp = grid::gpar(col="grey", fontsize=10))
-  grid::grid.text(coverage, x = 0.5 - (as.integer(sqrt(max(pathOutcome, othersOutcome)))+4) * 2 * offset * .48, y = 0.5, rot = 90,  gp = grid::gpar(col="grey", fontsize=10))
+  grid::grid.text("consistency", x = 0.5, y = 0.78, rot = 0, gp = grid::gpar(col="grey", fontsize=10))
+  grid::grid.text(consistency, x = 0.5, y = 0.75, rot = 0, gp = grid::gpar(col="grey", fontsize=10))
+  grid::grid.text("coverage", x = 0.22, y = 0.5, rot = 90,  gp = grid::gpar(col="grey", fontsize=10))
+  grid::grid.text(coverage, x = 0.25, y = 0.5, rot = 90,  gp = grid::gpar(col="grey", fontsize=10))
   # use these variables is you need to calculate an odds ratio for some reason
   # but for consistencies of 1, the odds ratio will be infinite
   # pPathOutcome <- pathOutcome/(pathOutcome + pathNotOutcome)
