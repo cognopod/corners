@@ -1,6 +1,6 @@
 Package: corners
 Title: Simulating and Visualizing Sets
-Version: 0.9.12
+Version: 0.9.13
 Authors@R: person("Karl", "Bailey", email = "kgbailey@cognopod.com", role = c("aut", "cre"))
 Description: Various functions for visualizing and testing set-theoretic analysis of data.
 Depends: R (>= 3.4.0)
