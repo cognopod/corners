@@ -6,9 +6,9 @@
 \usage{
 plotCorners(pathOutcome, othersOutcome, pathNotOutcome, othersNotOutcome,
   uniquePathOutcome, path = "PATH", outcome = "OUTCOME",
-  textPosition = 0.25, pathColor = "#5e3c99",
-  othersColor = "#b2abd2", pathNotColor = "#e66101",
-  othersNotColor = "#fdb863", shape = "square")
+  textPosition = 0.25, pathColor = "#5dc863",
+  othersColor = "#2c728e", pathNotColor = "#fde725",
+  othersNotColor = "#440154", shape = "square")
 }
 \arguments{
 \item{pathOutcome}{is the number of cases that have the path leading to the outcome}
