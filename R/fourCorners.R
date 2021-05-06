@@ -9,7 +9,7 @@
 #' @param othersNotColor is the color of the irrelevant cases (without the outcome and not on the path)
 #' @param shape is the shape to be used in plotting
 #' @export
-fourCorners <- function(cornerSet, outcomeLabel = "OUTCOME", pathColor = "#5e3c99", othersColor = "#b2abd2", pathNotColor = "#e66101", othersNotColor = "#fdb863", shape = "square") {
+fourCorners <- function(cornerSet, outcomeLabel = "OUTCOME", pathColor = "#5dc863", othersColor = "#2c728e", pathNotColor = "#fde725", othersNotColor = "#440154", shape = "square") {
   # draw a deadNettle plot for each path
   for (k in 1:nrow(cornerSet$pimCorners)) {
     plotCorners(cornerSet$pimCorners$PATHOUT[k],
